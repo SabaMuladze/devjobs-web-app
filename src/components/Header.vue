@@ -3,9 +3,9 @@
     <div class="flex justify-between items-center">
       <div class="text-white text-3xl font-bold">devjobs</div>
       <div class="flex items-center gap-3 h-fit">
-        <img src="../../public/desktop/icon-sun.svg" alt="" />
+        <img src="../../public/assets/desktop/icon-sun.svg" alt="" />
         <toggle @value="toggleVal"></toggle>
-        <img src="../../public/desktop/icon-moon.svg" alt="" />
+        <img src="../../public/assets/desktop/icon-moon.svg" alt="" />
       </div>
     </div>
   </header>
@@ -30,6 +30,6 @@ export default {
 
 <style scoped>
 header {
-  background-image: url("../../public/mobile/bg-pattern-header.svg");
+  background-image: url("../../public/assets/mobile/bg-pattern-header.svg");
 }
 </style>

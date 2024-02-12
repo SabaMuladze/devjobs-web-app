@@ -25,4 +25,14 @@ export default {
   margin: 0;
   padding: 0;
 }
+
+h1 {
+  @apply text-[20px] font-bold text-[#19202D] dark:text-white;
+}
+p {
+  @apply text-base  text-[#6E8098];
+}
+h2 {
+  @apply text-[15px] font-bold text-[#5964E0];
+}
 </style>
