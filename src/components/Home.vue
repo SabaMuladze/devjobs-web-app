@@ -1,13 +1,15 @@
 <template>
   <div :class="{ dark: dark }" class="bg-[#F4F6F8]">
     <div class="dark:bg-[#121721] w-full min-h-[100vh]">
-      <div class="pt-16 pb-6">
+      <Filter />
+
+      <div class="pt-12 pb-6">
         <ul
           class="flex flex-wrap gap-y-12 justify-center gap-x-2 xl:grid grid-cols-3 w-fit mx-auto xl:gap-x-10 lg:pt-20 pb-14"
         >
           <li class="" v-for="(job, index) in jobs" :key="job.id">
             <div
-              class="w-[330px] h-[200px] bg-[#fff] p-7 flex flex-col justify-between relative dark:bg-[#19202D]"
+              class="w-[330px] min-h-[200px] bg-[#fff] p-7 pt-9 flex flex-col justify-between relative rounded-md cursor-pointer dark:bg-[#19202D]"
             >
               <div
                 :class="`w-[50px] h-[50px] flex items-center justify-center absolute p-1 top-[-25px] rounded-lg`"
@@ -23,7 +25,9 @@
                   ></span>
                   {{ job.contract }}
                 </p>
-                <h1>{{ job.position }}</h1>
+                <h1 class="hover:text-[#6E8098] cursor-pointer">
+                  {{ job.position }}
+                </h1>
                 <p>{{ job.company }}</p>
               </div>
               <div>
@@ -40,6 +44,7 @@
 <script>
 import { mapGetters } from "vuex";
 import data from "../../data.json";
+import Filter from "./Filter.vue";
 export default {
   data() {
     return {
@@ -54,6 +59,9 @@ export default {
   },
   mounted() {
     this.jobs = data;
+  },
+  components: {
+    Filter,
   },
 };
 </script>

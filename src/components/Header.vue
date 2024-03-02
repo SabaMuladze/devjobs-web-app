@@ -3,7 +3,7 @@
     <header
       class="w-full h-[130px] p-6 bg-white dark:bg-[#121721] md:h-[160px] md:pt-9"
     >
-      <div class="flex justify-between items-center lg:w-[1070px] lg:mx-auto">
+      <div class="flex justify-between items-center xl:w-[1070px] lg:mx-auto">
         <div class="text-white text-3xl font-bold">devjobs</div>
         <div class="flex items-center gap-3 h-fit">
           <img src="../../public/assets/desktop/icon-sun.svg" alt="" />

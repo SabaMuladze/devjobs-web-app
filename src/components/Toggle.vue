@@ -9,7 +9,7 @@
     />
     <label
       for="toggle"
-      class="w-12 h-6 bg-white rounded-xl flex items-center px-1"
+      class="w-12 h-6 bg-white rounded-xl flex items-center px-1 cursor-pointer"
     ></label>
   </div>
 </template>

@@ -27,12 +27,12 @@ export default {
 }
 
 h1 {
-  @apply text-[20px] font-bold text-[#19202D] dark:text-white;
+  @apply text-[20px] font-bold text-[#19202D] dark:text-white cursor-default;
 }
 p {
-  @apply text-base  text-[#6E8098];
+  @apply text-base  text-[#6E8098] cursor-default;
 }
 h2 {
-  @apply text-[15px] font-bold text-[#5964E0];
+  @apply text-[15px] font-bold text-[#5964E0] cursor-default;
 }
 </style>
