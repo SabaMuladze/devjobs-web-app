@@ -1,8 +1,12 @@
 <template>
   <div :class="{ dark: dark }" class="bg-[#F4F6F8]">
     <div class="dark:bg-[#121721] w-full min-h-[100vh]">
-      <Filter />
-
+      <Filter
+        @jobData="handleFilter"
+        class="dark:bg-[#19202D]"
+        :notFound="notFound"
+      />
+      <NotFound v-if="notFound" />
       <div class="pt-12 pb-6">
         <ul
           class="flex flex-wrap gap-y-12 justify-center gap-x-2 xl:grid grid-cols-3 w-fit mx-auto xl:gap-x-10 lg:pt-20 pb-14"
@@ -45,10 +49,13 @@
 import { mapGetters } from "vuex";
 import data from "../../data.json";
 import Filter from "./Filter.vue";
+import NotFound from "./NotFound.vue";
 export default {
   data() {
     return {
       jobs: [],
+      originalData: data,
+      notFound: false,
     };
   },
   computed: {
@@ -57,11 +64,17 @@ export default {
       return this.darkMode;
     },
   },
+  methods: {
+    handleFilter(jobData) {
+      this.jobs = jobData;
+    },
+  },
   mounted() {
-    this.jobs = data;
+    this.jobs = this.originalData;
   },
   components: {
     Filter,
+    NotFound,
   },
 };
 </script>
