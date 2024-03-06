@@ -1,7 +1,7 @@
 <template>
   <div :class="{ dark: dark }">
     <header
-      class="w-full h-[130px] p-6 bg-white dark:bg-[#121721] md:h-[160px] md:pt-9"
+      class="w-full h-[130px] p-6 bg-[#F4F6F8] dark:bg-[#121721] md:h-[160px] md:pt-9"
     >
       <div class="flex justify-between items-center xl:w-[1070px] lg:mx-auto">
         <div class="text-white text-3xl font-bold">devjobs</div>

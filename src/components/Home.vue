@@ -3,7 +3,7 @@
     <div class="dark:bg-[#121721] w-full min-h-[100vh]">
       <Filter
         @jobData="handleFilter"
-        class="dark:bg-[#19202D]"
+        class="dark:bg-[#121721]"
         :notFound="notFound"
       />
       <NotFound v-if="notFound" />
