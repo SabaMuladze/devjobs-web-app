@@ -31,34 +31,45 @@
       class="relative m-auto max-md:hidden md:max-w-[690px] lg:max-w-[1110px]"
     >
       <div
-        class="flex items-center px-4 max-h-20 my-0 bg-white rounded-md relative bottom-8 dark:bg-[#19202D] lg:mx-6"
+        class="flex justify-center items-center px-4 max-h-20 my-0 bg-white rounded-md relative bottom-8 dark:bg-[#19202D] lg:mx-6"
       >
-        <div class="p-5 border-r-[#979797] border-r-[1px]">
+        <div
+          class="flex items-center p-5 gap-2 pl-0 border-r-[#979797] border-r-[1px]"
+        >
+          <img src="../../public/assets/desktop/icon-search.svg" alt="" />
           <input
-            class="outline-none h-[30px] bg-inherit w-full dark:text-white"
+            class="outline-none h-[30px] bg-inherit max-w-[150px] dark:text-white"
             type="text"
             placeholder="Filter by title..."
             v-model="title"
             @input="filter"
           />
         </div>
-        <div class="p-5 border-r-[#979797] border-r-[1px]">
+        <div
+          class="flex items-center p-5 gap-2 border-r-[#979797] border-r-[1px]"
+        >
+          <img src="../../public/assets/desktop/icon-location.svg" alt="" />
           <input
-            class="outline-none h-[30px] bg-inherit w-full dark:text-white"
+            class="outline-none h-[30px] bg-inherit max-w-[175px] dark:text-white"
             type="text"
             placeholder="Filter by location..."
-            v-model="title"
-            @input="filter"
+            v-model="location"
+            @input="locations"
           />
         </div>
-        <div class="p-5 flex items-center gap-2 w-auto">
+        <div class="p-5 pr-0 flex items-center gap-2 w-auto">
           <input
-            class="h-[24px] w-[24px] bg-inherit dark:text-white"
+            class="h-[24px] w-[24px] bg-[#979797]"
             type="checkbox"
-            v-model="title"
-            @input="filter"
+            v-model="check"
+            @input=""
           />
-          <p>Full Time</p>
+          <p class="font-bold text-black">Full Time</p>
+          <button
+            class="w-20 h-12 bg-[#5964E0] rounded-md flex items-center justify-center text-white font-bold"
+          >
+            Search
+          </button>
         </div>
       </div>
     </div>
@@ -75,7 +86,9 @@ export default {
       originalData: data,
       jobData: [],
       title: "",
+      location: "",
       nofound: this.notFound,
+      check: false,
     };
   },
   methods: {
@@ -94,10 +107,24 @@ export default {
       }
       this.$emit("jobData", this.jobData);
     },
+    locations() {
+      if (this.location.length > 0) {
+        const newJobData = this.originalData.filter((loc) =>
+          loc.location.toLocaleLowerCase().includes(this.location)
+        );
+        if (newJobData.length > 0) {
+          this.jobData = newJobData;
+        } else {
+          this.jobData = this.originalData;
+        }
+      } else {
+        this.jobData = this.originalData;
+      }
+      this.$emit("jobData", this.jobData);
+    },
   },
   mounted() {
     this.jobData = this.originalData;
-    console.log(this.notFound);
   },
 };
 </script>
