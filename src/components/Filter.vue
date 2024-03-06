@@ -61,8 +61,8 @@
           <input
             class="h-[24px] w-[24px] bg-[#979797]"
             type="checkbox"
-            v-model="check"
-            @input=""
+            v-model="isFullTime"
+            @input="fullTime"
           />
           <p class="font-bold text-black">Full Time</p>
           <button
@@ -88,35 +88,42 @@ export default {
       title: "",
       location: "",
       nofound: this.notFound,
-      check: false,
+      isFullTime: false,
     };
   },
   methods: {
     filter() {
+      if (this.title.length == 0) {
+        this.jobData = this.originalData;
+      }
       if (this.title.length > 0) {
         const newJobData = this.originalData.filter((job) =>
           job.position.toLocaleLowerCase().includes(this.title)
         );
-        if (newJobData.length > 0) {
-          this.jobData = newJobData;
-        } else {
-          this.jobData = this.originalData;
-        }
-      } else {
-        this.jobData = this.originalData;
+        this.jobData = newJobData;
       }
       this.$emit("jobData", this.jobData);
     },
     locations() {
+      if (this.location.length == 0) {
+        this.jobData = this.originalData;
+      }
       if (this.location.length > 0) {
         const newJobData = this.originalData.filter((loc) =>
           loc.location.toLocaleLowerCase().includes(this.location)
         );
-        if (newJobData.length > 0) {
-          this.jobData = newJobData;
-        } else {
-          this.jobData = this.originalData;
-        }
+        this.jobData = newJobData;
+      }
+      this.$emit("jobData", this.jobData);
+    },
+    fullTime() {
+      this.isFullTime = !this.isFullTime;
+      if (this.isFullTime == true) {
+        const newJobData = this.originalData.filter(
+          (contr) => contr.contract == "Full Time"
+        );
+        this.jobData = newJobData;
+        console.log();
       } else {
         this.jobData = this.originalData;
       }
