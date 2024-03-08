@@ -31,16 +31,16 @@
       class="relative m-auto max-md:hidden md:max-w-[690px] lg:max-w-[1110px]"
     >
       <div
-        class="flex justify-center items-center px-4 max-h-20 my-0 bg-white rounded-md relative bottom-8 dark:bg-[#19202D] lg:mx-6"
+        class="flex justify-center items-center px-4 max-h-20 my-0 bg-white rounded-md relative bottom-8 dark:bg-[#19202D] lg:mx-6 lg:justify-around"
       >
         <div
-          class="flex items-center p-5 gap-2 pl-0 border-r-[#979797] border-r-[1px]"
+          class="flex items-center p-5 gap-2 pl-0 border-r-[#979797] border-r-[1px] lg:w-[40%]"
         >
           <img src="../../public/assets/desktop/icon-search.svg" alt="" />
           <input
-            class="outline-none h-[30px] bg-inherit max-w-[150px] dark:text-white"
+            class="outline-none h-[30px] bg-inherit w-[150px] dark:text-white lg:w-[270px]"
             type="text"
-            placeholder="Filter by title..."
+            :placeholder="placeholderText"
             v-model="title"
           />
         </div>
@@ -55,13 +55,15 @@
             v-model="location"
           />
         </div>
-        <div class="p-5 pr-0 flex items-center gap-2 w-auto">
+        <div class="p-5 pr-0 flex items-center gap-2 w-auto lg:gap-3">
           <input
             class="h-[24px] w-[24px] border-none accent-[#5964E0]"
             type="checkbox"
             v-model="isFullTime"
           />
-          <p class="font-bold text-black dark:text-white">Full Time</p>
+          <p class="font-bold text-black dark:text-white">
+            Full Time <span class="max-lg:hidden">Only</span>
+          </p>
           <button
             class="w-20 h-12 bg-[#5964E0] rounded-md flex items-center justify-center text-white font-bold"
             @click="search"
@@ -76,7 +78,6 @@
 
 <script>
 import data from "../../data.json";
-import NotFound from "./NotFound.vue";
 export default {
   props: ["notFound"],
   data() {
@@ -87,6 +88,8 @@ export default {
       location: "",
       nofound: this.notFound,
       isFullTime: false,
+      smallScreenPlaceholder: "Filter by title...",
+      defaultPlaceholder: "Filter by title, companies, expertise…",
     };
   },
   methods: {
@@ -132,6 +135,15 @@ export default {
         this.jobData = this.originalData;
       }
       this.$emit("jobData", this.jobData);
+    },
+  },
+  computed: {
+    placeholderText() {
+      if (window.innerWidth <= 1023) {
+        return this.smallScreenPlaceholder;
+      } else {
+        return this.defaultPlaceholder;
+      }
     },
   },
   mounted() {

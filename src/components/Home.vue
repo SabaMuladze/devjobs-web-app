@@ -1,12 +1,7 @@
 <template>
   <div :class="{ dark: dark }" class="bg-[#F4F6F8]">
     <div class="dark:bg-[#121721] w-full min-h-[100vh]">
-      <Filter
-        @jobData="handleFilter"
-        class="dark:bg-[#121721]"
-        :notFound="notFound"
-      />
-      <NotFound v-if="notFound" />
+      <Filter @jobData="handleFilter" class="dark:bg-[#121721]" />
       <div class="pt-12 pb-6">
         <ul
           class="flex flex-wrap gap-y-12 justify-center gap-x-2 xl:grid grid-cols-3 w-fit mx-auto xl:gap-x-10 lg:pt-20 pb-14"
@@ -29,9 +24,16 @@
                   ></span>
                   {{ job.contract }}
                 </p>
-                <h1 class="hover:text-[#6E8098] cursor-pointer">
-                  {{ job.position }}
-                </h1>
+                <router-link
+                  :to="{
+                    path: '/details',
+                    query: { id: job.id },
+                  }"
+                >
+                  <h1 class="hover:text-[#6E8098] cursor-pointer">
+                    {{ job.position }}
+                  </h1>
+                </router-link>
                 <p>{{ job.company }}</p>
               </div>
               <div>
