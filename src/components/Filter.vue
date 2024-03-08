@@ -9,7 +9,6 @@
           type="text"
           placeholder="Filter by title..."
           v-model="title"
-          @input="filter"
         />
       </div>
       <div class="flex items-center gap-3">
@@ -22,6 +21,7 @@
         </div>
         <button
           class="w-12 h-12 bg-[#5964E0] rounded-md flex items-center justify-center"
+          @click="filter"
         >
           <img src="../../public/assets/mobile/search.png" alt="" />
         </button>
@@ -42,7 +42,6 @@
             type="text"
             placeholder="Filter by title..."
             v-model="title"
-            @input="filter"
           />
         </div>
         <div
@@ -54,7 +53,6 @@
             type="text"
             placeholder="Filter by location..."
             v-model="location"
-            @input="locations"
           />
         </div>
         <div class="p-5 pr-0 flex items-center gap-2 w-auto">
@@ -62,11 +60,11 @@
             class="h-[24px] w-[24px] border-none accent-[#5964E0]"
             type="checkbox"
             v-model="isFullTime"
-            @input="fullTime"
           />
           <p class="font-bold text-black dark:text-white">Full Time</p>
           <button
             class="w-20 h-12 bg-[#5964E0] rounded-md flex items-center justify-center text-white font-bold"
+            @click="search"
           >
             Search
           </button>
@@ -92,6 +90,12 @@ export default {
     };
   },
   methods: {
+    search() {
+      this.filter(), this.locations();
+      if (this.isFullTime == true) {
+        this.fullTime();
+      }
+    },
     filter() {
       if (this.title.length == 0) {
         this.jobData = this.originalData;
@@ -118,13 +122,12 @@ export default {
       this.$emit("jobData", this.jobData);
     },
     fullTime() {
-      this.isFullTime = !this.isFullTime;
+      this.isFullTime = true;
       if (this.isFullTime == true) {
         const newJobData = this.jobData.filter(
           (contr) => contr.contract == "Full Time"
         );
         this.jobData = newJobData;
-        console.log();
       } else {
         this.jobData = this.originalData;
       }
