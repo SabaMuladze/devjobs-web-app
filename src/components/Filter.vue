@@ -59,12 +59,12 @@
         </div>
         <div class="p-5 pr-0 flex items-center gap-2 w-auto">
           <input
-            class="h-[24px] w-[24px] bg-[#979797]"
+            class="h-[24px] w-[24px] border-none accent-[#5964E0]"
             type="checkbox"
             v-model="isFullTime"
             @input="fullTime"
           />
-          <p class="font-bold text-black">Full Time</p>
+          <p class="font-bold text-black dark:text-white">Full Time</p>
           <button
             class="w-20 h-12 bg-[#5964E0] rounded-md flex items-center justify-center text-white font-bold"
           >
@@ -100,6 +100,7 @@ export default {
         const newJobData = this.originalData.filter((job) =>
           job.position.toLocaleLowerCase().includes(this.title)
         );
+        this.locations();
         this.jobData = newJobData;
       }
       this.$emit("jobData", this.jobData);
@@ -119,7 +120,7 @@ export default {
     fullTime() {
       this.isFullTime = !this.isFullTime;
       if (this.isFullTime == true) {
-        const newJobData = this.originalData.filter(
+        const newJobData = this.jobData.filter(
           (contr) => contr.contract == "Full Time"
         );
         this.jobData = newJobData;
