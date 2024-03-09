@@ -1,24 +1,32 @@
 <template>
   <div :class="{ dark: dark }" class="bg-[#F4F6F8]">
-    <div class="dark:bg-[#121721] min-h-[100vh] px-6">
+    <div class="dark:bg-[#121721] min-h-[100vh] px-6 mx-auto">
       <div
-        class="bg-white dark:bg-[#19202D] p-[25px] rounded-md relative bottom-5"
+        class="bg-white dark:bg-[#19202D] p-[25px] rounded-lg relative bottom-5 mx-auto max-w-[730px] md:py-0 md:pl-0"
       >
-        <div class="flex items-center flex-col gap-5 relative">
-          <div class="flex justify-center">
+        <div
+          class="flex items-center flex-col gap-5 relative md:flex-row md:justify-between"
+        >
+          <div class="flex justify-center md:justify-between gap-5">
             <div
-              :class="`w-[50px] h-[50px] flex items-center justify-center absolute p-1 top-[-50px] rounded-lg`"
+              :class="`w-[50px] h-[50px] flex items-center justify-center absolute p-1 top-[-50px] rounded-lg md:relative md:h-[140px] md:w-[140px] md:top-0 `"
               :style="{ backgroundColor: jobsData[0]?.logoBackground }"
             >
-              <img class="" :src="'../../public/' + jobsData[0]?.logo" alt="" />
+              <img
+                class="md:scale-150"
+                :src="'../../public/' + jobsData[0]?.logo"
+                alt=""
+              />
+            </div>
+            <div
+              class="flex flex-col gap-3 text-center mt-5 md:justify-center md:mt-0"
+            >
+              <h1>{{ jobsData[0]?.company }}</h1>
+              <p>{{ jobsData[0]?.company }}.com</p>
             </div>
           </div>
-          <div class="flex flex-col gap-3 text-center">
-            <h1>{{ jobsData[0]?.company }}</h1>
-            <p>{{ jobsData[0]?.company }}.com</p>
-          </div>
           <button
-            class="px-5 py-4 font-bold text-[#5964E0] text-[16px] bg-[#5964e021] rounded-lg"
+            class="px-4 py-3 font-bold text-[#5964E0] text-[16px] bg-[#5964e021] rounded-lg"
           >
             Company Site
           </button>
