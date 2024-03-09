@@ -2,7 +2,7 @@
   <div :class="{ dark: dark }" class="bg-[#F4F6F8]">
     <div class="dark:bg-[#121721] min-h-[100vh] px-6 mx-auto">
       <div
-        class="bg-white dark:bg-[#19202D] p-[25px] rounded-lg relative bottom-5 mx-auto max-w-[730px] md:py-0 md:pl-0"
+        class="bg-white dark:bg-[#19202D] p-[25px] rounded-lg relative bottom-5 mx-auto max-w-[730px] md:py-0 md:pl-0 md:bottom-10"
       >
         <div
           class="flex items-center flex-col gap-5 relative md:flex-row md:justify-between"
