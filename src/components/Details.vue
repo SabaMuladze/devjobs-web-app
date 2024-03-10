@@ -33,7 +33,38 @@
         </div>
         <div></div>
       </div>
-      <div></div>
+      <div
+        class="bg-white dark:bg-[#19202D] p-[25px] rounded-lg relative bottom-5 mx-auto mt-8 max-w-[730px]"
+      >
+        <div class="md:flex items-center justify-between">
+          <div>
+            <div class="flex flex-col gap-1">
+              <p class="flex items-center gap-1">
+                {{ jobsData[0]?.postedAt }}
+                <span class="h-1 w-1 rounded-full bg-[#6E8098] relative"></span>
+                {{ jobsData[0]?.contract }}
+              </p>
+              <h1
+                class="hover:text-[#6E8098] cursor-pointer sm:text-[25px] md:text-[28px]"
+              >
+                {{ jobsData[0]?.position }}
+              </h1>
+              <!-- <p>{{ jobsData[0]?.company }}</p> -->
+            </div>
+            <div class="mt-1">
+              <h2>{{ jobsData[0]?.location }}</h2>
+            </div>
+          </div>
+          <div class="mt-10 flex items-center md:w-[141px] md:mt-0">
+            <button
+              class="w-full h-12 bg-[#5964E0] rounded-md flex items-center justify-center text-white font-bold"
+              @click=""
+            >
+              Apply Now
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </template>
