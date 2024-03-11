@@ -81,6 +81,18 @@
               </div>
             </li>
           </ul>
+          <h1>What You Will Do</h1>
+          <p>{{ jobsData[0]?.role.content }}</p>
+          <ul class="flex flex-col gap-5">
+            <li v-for="(item, index) in jobsData[0]?.role.items" :key="index">
+              <div class="">
+                <div class="absolute text-[#5964E0] font-bold z-50">
+                  {{ index + 1 }}
+                </div>
+                <p class="ml-6">{{ item }}</p>
+              </div>
+            </li>
+          </ul>
         </div>
       </div>
     </div>
