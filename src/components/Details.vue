@@ -64,6 +64,24 @@
             </button>
           </div>
         </div>
+        <div class="flex flex-col gap-10 mt-10">
+          <p>{{ jobsData[0]?.description }}</p>
+          <h1>Requirements</h1>
+          <p>{{ jobsData[0]?.requirements.content }}</p>
+          <ul class="flex flex-col gap-5">
+            <li
+              v-for="(item, index) in jobsData[0]?.requirements.items"
+              :key="index"
+            >
+              <div class="">
+                <div
+                  class="absolute h-1 w-1 mt-2 bg-[#5964E0] rounded-full z-50"
+                ></div>
+                <p class="ml-6">{{ item }}</p>
+              </div>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
