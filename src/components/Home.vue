@@ -3,8 +3,9 @@
     <div class="dark:bg-[#121721] w-full min-h-[100vh]">
       <Filter @jobData="handleFilter" class="dark:bg-[#121721]" />
       <div class="pt-12 pb-6">
-        <transition>
+        <transition name="load" mode="out-in">
           <ul
+            v-if="animate"
             class="flex flex-wrap gap-y-12 justify-center gap-x-2 xl:grid grid-cols-3 w-fit mx-auto xl:gap-x-10 pb-14"
           >
             <li class="" v-for="(job, index) in displayedItems" :key="job.id">
@@ -44,7 +45,6 @@
             </li>
           </ul>
         </transition>
-
         <button
           class="flex mx-auto px-4 py-3 font-bold text-white text-[16px] bg-[#5964E0] rounded-lg"
           v-if="showLoadMoreButton"
@@ -69,6 +69,7 @@ export default {
       originalData: data,
       startIndex: 0,
       itemsPerPage: 9,
+      animate: false,
     };
   },
   computed: {
@@ -93,6 +94,7 @@ export default {
   },
   mounted() {
     this.jobs = this.originalData;
+    this.animate = true;
   },
   components: {
     Filter,
@@ -101,4 +103,15 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.load-enter-active,
+.load-leave-active {
+  transition: all 0.8s;
+}
+.load-enter-from {
+  opacity: 0.2;
+}
+.load-enter-to {
+  opacity: 1;
+}
+</style>
