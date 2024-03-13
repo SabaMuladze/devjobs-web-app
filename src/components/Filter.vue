@@ -21,7 +21,7 @@
         </div>
         <button
           class="w-12 h-12 bg-[#5964E0] rounded-md flex items-center justify-center"
-          @click="filter"
+          @click="filters"
         >
           <img src="../../public/assets/mobile/search.png" alt="" />
         </button>
@@ -94,12 +94,13 @@ export default {
   },
   methods: {
     search() {
-      this.filter(), this.locations();
+      this.filters();
+      this.locations();
       if (this.isFullTime == true) {
         this.fullTime();
       }
     },
-    filter() {
+    filters() {
       if (this.title.length == 0) {
         this.jobData = this.originalData;
       }
@@ -107,7 +108,7 @@ export default {
         const newJobData = this.originalData.filter((job) =>
           job.position.toLocaleLowerCase().includes(this.title)
         );
-        this.locations();
+        // this.locations();
         this.jobData = newJobData;
       }
       this.$emit("jobData", this.jobData);

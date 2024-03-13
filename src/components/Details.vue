@@ -25,11 +25,13 @@
               <p>{{ jobsData[0]?.company }}.com</p>
             </div>
           </div>
-          <button
+          <a
+            :href="jobsData[0]?.website"
+            target="_blank"
             class="px-4 py-3 font-bold text-[#5964E0] text-[16px] bg-[#5964e021] rounded-lg"
           >
             Company Site
-          </button>
+          </a>
         </div>
         <div></div>
       </div>
@@ -53,12 +55,14 @@
             </div>
           </div>
           <div class="mt-10 flex items-center md:w-[141px] md:mt-0">
-            <button
+            <a
+              :href="jobsData[0]?.apply"
+              target="_blank"
               class="w-full h-12 bg-[#5964E0] rounded-md flex items-center justify-center text-white font-bold"
               @click=""
             >
               Apply Now
-            </button>
+            </a>
           </div>
         </div>
         <div class="flex flex-col gap-10 mt-10">
@@ -101,12 +105,15 @@
           </h1>
           <p>{{ jobsData[0]?.company }}</p>
         </div>
-        <button
+
+        <a
+          :href="jobsData[0]?.apply"
+          target="_blank"
           class="w-full h-12 bg-[#5964E0] rounded-md flex items-center justify-center text-white font-bold md:w-[140px] btn"
           @click=""
         >
           Apply Now
-        </button>
+        </a>
       </div>
     </footer>
   </div>
