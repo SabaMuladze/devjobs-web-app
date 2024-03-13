@@ -44,12 +44,9 @@
                 <span class="h-1 w-1 rounded-full bg-[#6E8098] relative"></span>
                 {{ jobsData[0]?.contract }}
               </p>
-              <h1
-                class="hover:text-[#6E8098] cursor-pointer sm:text-[25px] md:text-[28px]"
-              >
+              <h1 class="sm:text-[25px] md:text-[28px]">
                 {{ jobsData[0]?.position }}
               </h1>
-              <!-- <p>{{ jobsData[0]?.company }}</p> -->
             </div>
             <div class="mt-1">
               <h2>{{ jobsData[0]?.location }}</h2>
@@ -96,6 +93,22 @@
         </div>
       </div>
     </div>
+    <footer class="bg-white p-6 dark:dark:bg-[#19202D] flex justify-center">
+      <div class="w-full flex items-center md:justify-between md:w-[730px]">
+        <div class="max-md:hidden">
+          <h1 class="sm:text-[25px]">
+            {{ jobsData[0]?.position }}
+          </h1>
+          <p>{{ jobsData[0]?.company }}</p>
+        </div>
+        <button
+          class="w-full h-12 bg-[#5964E0] rounded-md flex items-center justify-center text-white font-bold md:w-[140px] btn"
+          @click=""
+        >
+          Apply Now
+        </button>
+      </div>
+    </footer>
   </div>
 </template>
 
@@ -124,3 +137,5 @@ export default {
   },
 };
 </script>
+
+<style scoped></style>
