@@ -106,9 +106,8 @@ export default {
       }
       if (this.title.length > 0) {
         const newJobData = this.originalData.filter((job) =>
-          job.position.toLocaleLowerCase().includes(this.title)
+          job.position.toLowerCase().includes(this.title.toLowerCase())
         );
-        // this.locations();
         this.jobData = newJobData;
       }
       this.$emit("jobData", this.jobData);
@@ -119,7 +118,7 @@ export default {
       }
       if (this.location.length > 0) {
         const newJobData = this.originalData.filter((loc) =>
-          loc.location.toLocaleLowerCase().includes(this.location)
+          loc.location.toLowerCase().includes(this.location.toLowerCase())
         );
         this.jobData = newJobData;
       }
