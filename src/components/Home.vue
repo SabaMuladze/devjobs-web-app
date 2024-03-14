@@ -16,7 +16,7 @@
                   :class="`w-[50px] h-[50px] flex items-center justify-center absolute p-1 top-[-25px] rounded-lg`"
                   :style="{ backgroundColor: job.logoBackground }"
                 >
-                  <img class="" :src="'../../public/' + job.logo" alt="" />
+                  <img class="" :src="job.logo" alt="" />
                 </div>
                 <div class="flex flex-col gap-1">
                   <p class="flex items-center gap-1">

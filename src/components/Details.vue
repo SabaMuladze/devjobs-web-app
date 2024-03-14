@@ -12,11 +12,7 @@
               :class="`w-[50px] h-[50px] flex items-center justify-center absolute p-1 top-[-50px] rounded-lg md:relative md:h-[140px] md:w-[140px] md:top-0 `"
               :style="{ backgroundColor: jobsData[0]?.logoBackground }"
             >
-              <img
-                class="md:scale-150"
-                :src="'../../public/' + jobsData[0]?.logo"
-                alt=""
-              />
+              <img class="md:scale-150" :src="jobsData[0]?.logo" alt="" />
             </div>
             <div
               class="flex flex-col gap-3 text-center mt-5 md:justify-center md:mt-0"
